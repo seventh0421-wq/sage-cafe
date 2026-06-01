@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>尾草咖啡 ・ Sage Café</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@300;400;500;600;700&family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
@@ -775,7 +778,7 @@
       </div>
       <div class="contact-card reveal">
         <div class="ci"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.5"/><path d="M15.2 12v1.4c0 1.4.8 2.1 2 2.1 1.6 0 2.6-1.5 2.6-3.5A7.6 7.6 0 1014.6 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        <div><h4>Threads</h4><p><a href="https://www.threads.com/@sage_0405qwer" target="_blank" rel="noopener noreferrer">@sage_0405qwer</a></p></div>
+        <div><h4>Threads</h4><p><a class="clink" href="https://www.threads.com/@sage_0405qwer" target="_blank" rel="noopener noreferrer">@sage_0405qwer</a></p></div>
       </div>
     </div>
 
@@ -825,6 +828,7 @@
   // 要新增店員就在下面多加一組 { ... }, ；要刪除就移除該組。
   var STAFF = [
     { name:"臭茉茉", role:"店長 Owner", initial:"茉",
+      photo:"images/staff/owner-thumb.png",
       card:"images/staff/owner.png",
       handle:"jying_8577",
       threads:"https://www.threads.net/@jying_8577" },
@@ -834,8 +838,8 @@
   // ① 填入你的 GitHub 帳號與 repo 名稱（部署的人設定一次即可）
   // ② 把照片上傳到 images/polaroid/（拍立得牆）與 images/highlights/（照片花絮）
   //    之後「上傳照片就會自動顯示」，檔名會直接當作說明文字，不用再改這裡。
-  var GITHUB_USER   = "seventh0421-wq"; // 例：weicao
-  var GITHUB_REPO   = "sage-cafe";       // 例：weicaocafe
+  var GITHUB_USER   = "seventh0421-wq"; // 你的 GitHub 帳號
+  var GITHUB_REPO   = "sage-cafe";       // 你的 repo 名稱
   var GITHUB_BRANCH = "main";                 // 分支名稱，通常是 main
 
   (function(){
