@@ -441,6 +441,42 @@
   .lightbox .lb-close:hover{opacity:1}
   @media(max-width:560px){.slide{height:300px}.polaroid{width:44%;min-width:148px}}
 
+  /* ============ STAFF (photo grid + modal) ============ */
+  .staff-tile .st-photo img.card-crop{object-position:16% 30%}
+  .sm-card.card-mode{display:block;max-width:min(900px,94vw);max-height:92vh;overflow:auto;padding:0;background:transparent;border:none;box-shadow:none}
+  .sm-cardimg{border-radius:14px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+  .sm-cardimg img{display:block;width:100%;height:auto}
+  .sm-foot{text-align:center;margin-top:18px}
+
+  .staff-grid2{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .staff-tile{cursor:pointer;border:none;background:none;padding:0;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:9px}
+  .staff-tile .st-photo{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;box-shadow:0 20px 44px -34px var(--shadow);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;background:radial-gradient(circle at 34% 28%,var(--sage-pale),var(--sage))}
+  .staff-tile .st-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .staff-tile .st-photo .ringtxt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:'Cinzel',serif;font-size:2.6rem}
+  .staff-tile .st-photo::after{content:"展開 ＋";position:absolute;left:0;right:0;bottom:0;padding:22px 0 9px;font-size:.72rem;letter-spacing:.24em;color:var(--paper);background:linear-gradient(0deg,rgba(58,51,40,.62),transparent);opacity:0;transition:opacity .35s}
+  .staff-tile:hover .st-photo{transform:translateY(-7px);box-shadow:0 34px 56px -30px var(--shadow)}
+  .staff-tile:hover .st-photo::after{opacity:1}
+  .staff-tile .st-name{font-weight:600;color:var(--sage-deep);letter-spacing:.08em;font-size:1.06rem}
+  .staff-tile .st-role{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.28em;color:var(--gold-deep);text-transform:uppercase;margin-top:-3px}
+  .staff-modal{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;background:rgba(58,51,40,.82);backdrop-filter:blur(5px);padding:26px}
+  .staff-modal.show{display:flex;animation:fade .3s ease both}
+  .sm-card{position:relative;background:linear-gradient(180deg,var(--paper),var(--cream));border:1px solid var(--line);border-radius:20px;max-width:640px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 40px 90px rgba(0,0,0,.5);display:grid;grid-template-columns:240px 1fr}
+  .sm-photo{position:relative;min-height:280px;background:radial-gradient(circle at 34% 28%,var(--sage-pale),var(--sage))}
+  .sm-photo img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+  .sm-photo .ringtxt{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--paper);font-family:'Cinzel',serif;font-size:3.2rem}
+  .sm-body{padding:34px 30px}
+  .sm-body .role{font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.3em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:6px}
+  .sm-body h3{font-weight:600;font-size:1.6rem;color:var(--sage-deep);letter-spacing:.08em;margin-bottom:14px}
+  .sm-body .quote{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--sage);font-size:1.18rem;margin-bottom:14px}
+  .sm-body .bio{font-size:.98rem;color:var(--bark-soft);margin-bottom:22px;line-height:1.85}
+  .threads-btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:var(--sage-deep);color:var(--paper);padding:11px 22px;border-radius:30px;font-size:.95rem;letter-spacing:.08em;transition:transform .25s,background .25s;box-shadow:0 12px 26px -16px var(--sage-deep)}
+  .threads-btn:hover{transform:translateY(-2px);background:var(--ink)}
+  .threads-btn svg{width:18px;height:18px}
+  .sm-close{position:absolute;top:14px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(251,247,238,.92);color:var(--sage-deep);border:none;cursor:pointer;font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;z-index:3;box-shadow:0 4px 10px rgba(87,69,54,.25)}
+  @media(max-width:720px){.staff-grid2{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.sm-card{grid-template-columns:1fr;max-height:90vh}.sm-photo{min-height:0;height:250px}.sm-photo img{position:static;height:250px}}
+  @media(max-width:480px){.staff-grid2{grid-template-columns:repeat(2,1fr)}}
+
   @media(max-width:720px){
     .welcome-strip,.pillars{grid-template-columns:1fr}
     .staff-grid,.svc-grid,.contact-grid,.set-grid{grid-template-columns:1fr}
@@ -578,38 +614,8 @@
       <svg width="26" height="14" viewBox="0 0 26 14"><path d="M13 13C13 7 9 3 3 2M13 13C13 7 17 3 23 2" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="13" cy="13" r="1.6" fill="currentColor"/></svg>
       <span class="r"></span>
     </div>
-
-    <div class="staff-grid">
-      <div class="staff reveal">
-        <div class="ring">尾</div>
-        <div class="role">Owner &nbsp;·&nbsp; 店長</div>
-        <h3>店長・尾草</h3>
-        <p class="quote">「慢慢來，這裡的時間是留給你的。」</p>
-        <p class="desc">尾草的主理人，總在吧檯後靜靜地備著草本與咖啡。擅長傾聽，會依照客人的氣色，調出最合適的那一杯。</p>
-      </div>
-      <div class="staff reveal">
-        <div class="ring">薄</div>
-        <div class="role">Barista &nbsp;·&nbsp; 咖啡師</div>
-        <h3>咖啡師・薄荷</h3>
-        <p class="quote">「再苦的日子，也能煮出回甘。」</p>
-        <p class="desc">負責店內所有手沖與義式咖啡。對風味有著近乎執著的講究，記得每位熟客喜歡的濃淡。</p>
-      </div>
-      <div class="staff reveal">
-        <div class="ring">蜜</div>
-        <div class="role">Patissier &nbsp;·&nbsp; 甜點師</div>
-        <h3>甜點師・蜜香</h3>
-        <p class="quote">「甜，是給自己的一點溫柔。」</p>
-        <p class="desc">每日手作甜點與烘焙的靈魂人物。擅長將季節食材化作療癒的滋味，櫥窗裡的品項時常更換。</p>
-      </div>
-      <div class="staff reveal">
-        <div class="ring">露</div>
-        <div class="role">Server &nbsp;·&nbsp; 外場</div>
-        <h3>外場・朝露</h3>
-        <p class="quote">「歡迎回來，今天也辛苦了。」</p>
-        <p class="desc">迎接每位走進尾草的客人。溫柔細心，總能在你需要時遞上恰到好處的關照與一條暖呼呼的毛毯。</p>
-      </div>
-    </div>
-    <p class="menu-note reveal" style="margin-top:28px">＊ 以上為角色設定範例，可依你的 RP 團隊自由替換姓名、職務與台詞。</p>
+    <p class="album-intro reveal" style="text-align:center">點任一位店員的照片，即可展開介紹並前往 Threads。</p>
+    <div class="staff-grid2" id="staffGrid"></div>
   </section>
 
   <!-- ===== MENU ===== -->
@@ -811,12 +817,25 @@
   homeLink.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go('home');}});
 
 
+  // ===== 店員介紹設定（在這裡編輯店員資料）=====
+  // 兩種模式：
+  //  A) 整張介紹卡：填 card（圖片路徑），縮圖會自動裁出角色，點開顯示整張卡。
+  //  B) 大頭照＋文字：填 photo / quote / bio（沒填 photo 就顯示 initial 圓框）。
+  // handle 填 Threads 帳號（不含 @），會變成「@帳號」按鈕並外連到 threads。
+  // 要新增店員就在下面多加一組 { ... }, ；要刪除就移除該組。
+  var STAFF = [
+    { name:"臭茉茉", role:"店長 Owner", initial:"茉",
+      card:"images/staff/owner.png",
+      handle:"jying_8577",
+      threads:"https://www.threads.net/@jying_8577" },
+  ];
+
   // ===== 相簿自動讀取設定（只需設定一次）=====
   // ① 填入你的 GitHub 帳號與 repo 名稱（部署的人設定一次即可）
   // ② 把照片上傳到 images/polaroid/（拍立得牆）與 images/highlights/（照片花絮）
   //    之後「上傳照片就會自動顯示」，檔名會直接當作說明文字，不用再改這裡。
-  var GITHUB_USER   = "seventh0421-wq"; // 例：weicao
-  var GITHUB_REPO   = "sage-cafe";       // 例：weicaocafe
+  var GITHUB_USER   = "YOUR_GITHUB_USERNAME"; // 例：weicao
+  var GITHUB_REPO   = "YOUR_REPO_NAME";       // 例：weicaocafe
   var GITHUB_BRANCH = "main";                 // 分支名稱，通常是 main
 
   (function(){
@@ -913,7 +932,52 @@
       document.addEventListener('keydown',function(e){ if(e.key==='Escape') lb.classList.remove('show'); });
     }
   })();
+
+  // ----- 店員介紹：照片牆 + 展開卡 -----
+  (function(){
+    var grid=document.getElementById('staffGrid'); if(!grid) return;
+    function esc(s){return (s||'').replace(/"/g,'&quot;');}
+    grid.innerHTML=STAFF.map(function(s,i){
+      var inner;
+      if(s.photo){ inner='<img src="'+s.photo+'" alt="'+esc(s.name)+'" loading="lazy">'; }
+      else if(s.card){ inner='<img class="card-crop" src="'+s.card+'" alt="'+esc(s.name)+'" loading="lazy">'; }
+      else { inner='<span class="ringtxt">'+(s.initial||'')+'</span>'; }
+      return '<button class="staff-tile reveal" data-i="'+i+'">'
+        +'<span class="st-photo">'+inner+'</span>'
+        +'<span class="st-name">'+s.name+'</span>'
+        +(s.role?'<span class="st-role">'+s.role+'</span>':'')
+        +'</button>';
+    }).join('');
+    var modal=document.getElementById('staffModal'), card=document.getElementById('sm-card');
+    var tIcon='<svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M15 12v1.6a2.4 2.4 0 004.8 0V12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+    function threadsBtn(s){ if(!s.threads) return ''; var label=s.handle?('@'+s.handle):'在 Threads 上追蹤'; return '<a class="threads-btn" href="'+s.threads+'" target="_blank" rel="noopener noreferrer">'+tIcon+label+'</a>'; }
+    function open(i){
+      var s=STAFF[i]; if(!s) return;
+      if(s.card){
+        card.classList.add('card-mode');
+        card.innerHTML='<button class="sm-close" aria-label="關閉">&times;</button>'
+          +'<div class="sm-cardimg"><img src="'+s.card+'" alt="'+esc(s.name)+'"></div>'
+          +(s.threads?('<div class="sm-foot">'+threadsBtn(s)+'</div>'):'');
+      } else {
+        card.classList.remove('card-mode');
+        var ph=s.photo?('<img src="'+s.photo+'" alt="'+esc(s.name)+'">'):('<span class="ringtxt">'+(s.initial||'')+'</span>');
+        card.innerHTML='<button class="sm-close" aria-label="關閉">&times;</button>'
+          +'<div class="sm-photo">'+ph+'</div>'
+          +'<div class="sm-body">'
+          +(s.role?'<div class="role">'+s.role+'</div>':'')
+          +'<h3>'+s.name+'</h3>'
+          +(s.quote?'<p class="quote">「'+s.quote+'」</p>':'')
+          +(s.bio?'<p class="bio">'+s.bio+'</p>':'')
+          +threadsBtn(s)+'</div>';
+      }
+      modal.classList.add('show');
+    }
+    grid.addEventListener('click',function(e){var t=e.target.closest('.staff-tile'); if(t) open(+t.getAttribute('data-i'));});
+    modal.addEventListener('click',function(e){ if(e.target===modal||e.target.closest('.sm-close')) modal.classList.remove('show'); });
+    document.addEventListener('keydown',function(e){ if(e.key==='Escape') modal.classList.remove('show'); });
+  })();
 </script>
+<div class="staff-modal" id="staffModal"><div class="sm-card" id="sm-card"></div></div>
 <div class="lightbox" id="lightbox"><span class="lb-close">&times;</span><div class="lb-inner" id="lb-body"></div></div>
 
 </body>
